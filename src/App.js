@@ -3,7 +3,7 @@ import './App.css';
 import { fetchToDos } from './api/fetchToDos';
 import List from './components/List';
 import ListItem from './components/ListItem';
-
+import { postToDo } from './api/postToDo';
 
 
 
@@ -23,6 +23,7 @@ function App() {
         {toDos?.map((todo)=>(<div>
             {todo.title}
         </div>))}
+        <button onClick = {postToDo({})}>New ToDo</button>
           
         </main>
     </div>
