@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Putzen",
+      "remarks": "Küche, Bad"
+    },
+    {
+      "title": "Schrubben",
+      "remarks": "Auto",
+      "id": 2
+    },
+    {
+      "title": "Lernen",
+      "remarks": "React",
+      "id": 3
+    }
+  ]
+}
