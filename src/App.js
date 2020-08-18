@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import { fetchToDos } from './api/fetchToDos';
+import List from './components/List';
+import ListItem from './components/ListItem';
+
+
+
 
 function App() {
+
+  const [toDos, setToDos] = React.useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const allToDos = await fetchToDos();
+      setToDos(allToDos);
+    }
+    fetchData();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        {toDos?.map((todo)=>(<div>
+            {todo.title}
+        </div>))}
+          
+        </main>
     </div>
   );
 }
 
 export default App;
+
+

@@ -1,6 +1,6 @@
 export async function fetchToDos() {
     const response = await fetch(
-      "http://localhost:6000/todos.json"
+      "http://localhost:3333/todos"
 
     );
     if (!response.ok) {
@@ -8,9 +8,9 @@ export async function fetchToDos() {
     }
     const result = await response.json();
     const todos = result.map((todo) => ({
-      id: result.id,
-      title: result.title,
-      details: result.remarks,
+      id: todo.id,
+      title: todo.title,
+      details: todo.remarks,
       
     }));
     return todos;
