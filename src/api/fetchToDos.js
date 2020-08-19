@@ -10,7 +10,7 @@ export async function fetchToDos() {
     const todos = result.map((todo) => ({
       id: todo.id,
       title: todo.title,
-      details: todo.remarks,
+      details: todo.details,
       
     }));
     return todos;
