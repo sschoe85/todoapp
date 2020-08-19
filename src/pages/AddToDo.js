@@ -1,5 +1,6 @@
 import React from "react";
 import { postToDo } from "../api/postToDo";
+import ButtonBack from "../components/ButtonBack";
 
 function AddToDo(props) {
   const [submitted, setSubmitted] = React.useState(false);
@@ -21,7 +22,7 @@ function AddToDo(props) {
   function handleDetailsChange(event) {
     setDetails(event.target.value);
   }
-  return (
+  return (<div>
     <form onSubmit={handleSubmit}>
       <label>
         Titel:
@@ -32,9 +33,11 @@ function AddToDo(props) {
         <input type="text" value={details} onChange={handleDetailsChange} />
       </label>
 
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Submit" disabled={!details || !title} />
     </form>
-  );
+    <ButtonBack></ButtonBack>
+    </div>
+    );
 }
 
 export default AddToDo;
