@@ -8,4 +8,6 @@ export async function postToDo(toDo) {
     if (!response.ok) {
       throw new Error(response);
     }
+    const result = await response.json();
+    return result;
   }

@@ -1,10 +1,14 @@
 import React from "react";
+import { postToDo } from "../api/postToDo";
 
 function AddToDo(props) {
   const [submitted, setSubmitted] = React.useState(false);
   const [title, setTitle] = React.useState("");
   function handleSubmit(event) {
-    alert("Form submitted" + title);
+    const todo = {
+      title: title
+    }
+    postToDo(todo);
     setSubmitted(true);
     event.preventDefault();
   }
