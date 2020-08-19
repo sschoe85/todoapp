@@ -4,6 +4,7 @@ import { fetchToDos } from './api/fetchToDos';
 import List from './components/List';
 import ListItem from './components/ListItem';
 import { postToDo } from './api/postToDo';
+import { deleteToDo } from './api/deleteToDo';
 
 
 
@@ -23,7 +24,9 @@ function App() {
         {toDos?.map((todo)=>(<div>
             {todo.title}
         </div>))}
-        <button onClick = {postToDo({})}>New ToDo</button>
+        <button onClick = {()=>postToDo({title: "Testen"})}>New ToDo</button>
+        
+        
           
         </main>
     </div>
