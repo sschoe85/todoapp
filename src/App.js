@@ -21,24 +21,23 @@ function App() {
     fetchData();
   }, []);
   return (
-    <div className="App">
       <Router>
+    <div className="App">
         <Switch>
           <Route path = "/add">
             <AddToDo/>
           </Route>
         </Switch>
         <Switch>
-          <Route path = "/home"> <main>
+          <Route path = "/home"> 
+          <main>
         {toDos?.map((todo)=>(<div>
             {todo.title}
         </div>))}
         <button onClick = {()=>postToDo({title: "Testen"})}>New ToDo</button>
-        
-        
-          
-        </main>
+        </main></Route></Switch>
     </div>
+        </Router>
   );
 }
 
