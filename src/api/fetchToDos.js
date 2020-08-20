@@ -6,12 +6,7 @@ export async function fetchToDos() {
     if (!response.ok) {
       throw new Error(response);
     }
-    const result = await response.json();
-    const todos = result.map((todo) => ({
-      id: todo.id,
-      title: todo.title,
-      details: todo.details,
-      
-    }));
+    const todos = await response.json();
+    
     return todos;
   }

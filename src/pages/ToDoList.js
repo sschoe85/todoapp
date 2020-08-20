@@ -1,23 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { fetchToDos } from "../api/fetchToDos";
 import { useHistory } from "react-router-dom";
+import useAsync from "../hooks/useAsync";
 
 function ToDoList() {
   const history = useHistory();
-  const [toDos, setToDos] = React.useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const allToDos = await fetchToDos();
-      setToDos(allToDos);
-    }
-    fetchData();
-  }, []);
   function handleClick() {
     history.push("/add");
   }
-  console.log(toDos);
+  const {data: toDos, loading, error} = useAsync(fetchToDos);
   return (
     <main>
+      {error && <div>Error!</div>}
+      {loading && <div>Page is loading...</div>}
       {toDos?.map((todo) => (
         <div>
           {todo.title} {todo.details}
